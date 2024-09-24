@@ -149,9 +149,9 @@ In the case of eUTxO the initial and final states of pet store are computed in a
 UTxO can be spent one once, this race condition would result in cancellation of many transactions.
 
 to tacle this problem a two phase scheme is used on practice:
-
+- transaction chaining
 - user puts base assets required for an operation into an order and commits in into blockchain
-- off-chain service that monitor blockchain and executes orders against actual pool states.
+- off-chain service like batchers that monitor blockchain and executes orders against actual pool states.
 - state sharding e.g A liquidity book pool is modelled as an infinity number of discrete UTxOs each tracking a particular range of bins.
 - 1.1 the larger amount of single swap is, the more shards of the pool are required to execute transaction. In extreme cases all of them may not fit one transaction and would require series of transactions.
 - 1.2 liquidity provider wants to provide liquidity in wide range bins, again more shards of the pool are required to execute transaction. And again, chain of transaction is required.
